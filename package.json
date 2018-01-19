@@ -1,7 +1,7 @@
 {
   "name": "jet-trainees",
   "version": "1.0.0",
-  "description": "Отборочное задание для прохода на стажировку",
+  "description": "Qualifying test task for training courses for developers of user interfaces in «Jet Infosystems»",
   "main": "src/index.js",
   "author": "Ptitsyn Anton",
   "contributors": [
@@ -25,11 +25,11 @@
   },
   "scripts": {
     "start": "parcel src/index.html -p 3000 --out-dir build",
-    "build": "yarn lint && yarn clean && yarn build:parcel",
-    "lint": "yarn lint:js",
+    "build": "npm run lint && npm run clean && npm run build:parcel",
+    "lint": "npm run lint:js",
     "lint:js:fix": "eslint ./app/**/*.js --fix",
     "lint:js": "eslint --ignore-path .gitignore -- ./src",
-    "clean": "yarn clean:build",
+    "clean": "npm run clean:build",
     "clean:build": "rimraf ./build",
     "build:parcel": "parcel build src/index.html --out-dir build --no-cache"
   },

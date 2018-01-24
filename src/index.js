@@ -5,4 +5,7 @@ class HelloWorld {
 
 const hello = new HelloWorld();
 // eslint-disable-next-line no-console
-console.log(`%c ${hello.print()}`, 'color: green; font-size:48px; weight: bold');
+console.log(
+  `%c ${hello.print()}`,
+  `color: green; font-size:48px; weight: bold`,
+);

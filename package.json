@@ -24,7 +24,7 @@
     "npm": "npm >=5.6.0"
   },
   "scripts": {
-    "start": "parcel src/index.html -p 3000 --out-dir build",
+    "start": "npm run clean:tmp && parcel src/index.html -p 3000 --out-dir .tmp",
     "build": "npm run lint && npm run clean && npm run build:parcel",
     "lint": "npm run lint:js && npm run lint:css",
     "lint-fix": "npm run lint:js:fix && npm run lint:css:fix",
@@ -33,6 +33,7 @@
     "lint:css": "stylelint --ignore-path .gitignore ./src/**/*.css",
     "lint:js": "eslint --ignore-path .gitignore -- ./src",
     "clean": "npm run clean:build",
+    "clean:tmp": "rimraf ./.tmp",
     "clean:build": "rimraf ./build",
     "build:parcel": "parcel build src/index.html --out-dir build --no-cache"
   },

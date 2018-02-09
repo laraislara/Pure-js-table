@@ -1,9 +1,100 @@
+body,
 html {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: right;
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: inherit;
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  border-bottom: 2px solid #4e4e4e;
+  text-transform: capitalize;
+  width: 900px;
+}
+
+td {
+  border-bottom: 1px solid #c1c1c1;
+  padding: 10px 10px 10px 5px;
+  font-family: "Helvetica", "Arial", "Lucida Grande", sans-serif;
+  font-size: 14px;
+  text-align: left;
+  margin: 0 15px 0 15px;
+}
+
+.header {
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 2px solid #4e4e4e;
+}
+
+.header-0,
+.header-1 {
+  padding: 10px 0 10px 15px;
+  text-align: left;
+}
+
+.Age,
+.Office,
+.Start.Date,
+.Salary,
+.header-2,
+.header-3,
+.header-4,
+.header-5 {
+  text-align: center;
+}
+
+tr:nth-child(2n) {
+  background-color: #f3f3f3;
+}
+
+.hidden {
+  display: none;
+}
+
+form {
+  margin: 20px 220px 20px 0;
+}
+
+.pagination {
+  margin: 10px 10px 10px 450px;
+  float: left;
+}
+
+.current {
+  padding: 5px;
+}
+
+.page-button {
+  margin-left: 10px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+}
+
+.previous,
+.next {
+  height: 30px;
+  width: 70px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.rows-per-page {
+  float: right;
+}
+
+.search {
+  cursor: pointer;
+}
+
+.page-button:hover,
+.previous:hover,
+.next:hover {
+  background-color: #efefef;
 }

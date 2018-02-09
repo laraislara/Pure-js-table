@@ -3,13 +3,31 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Table</title>
   <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
-  <h1>Hello World</h1>
-  <script src="./index.js"></script>
+<form class="searchForm">
+  <span>Search:</span>
+  <input type="search" title="Search data">
+  <button class="search">search</button>
+</form>
+
+<table id="table"></table>
+<div class="pagination"></div>
+
+<form>
+  <select class="rows-per-page" name="select2" title="Select rows per page">
+    <option>5</option>
+    <option>10</option>
+    <option selected>25</option>
+    <option>50</option>
+    <option>100</option>
+  </select>
+</form>
+
+<script src="./simpleTable.js"></script>
 </body>
 
 </html>

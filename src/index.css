@@ -63,10 +63,6 @@ form {
   float: left;
 }
 
-.current {
-  padding: 5px;
-}
-
 .page-button {
   margin-left: 10px;
   height: 30px;
@@ -97,4 +93,9 @@ form {
 .previous:hover,
 .next:hover {
   background-color: #efefef;
+}
+
+.page-button.current {
+  padding: 5px;
+  background-color: #b4b4b4;
 }

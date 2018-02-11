@@ -59,6 +59,7 @@ const input = document.querySelector('input[type=search]');
 const paginationContainer = document.querySelector('.pagination');
 // rows per page picker node
 const rowsPerPagesPicker = document.querySelector('.rows-per-page');
+
 addSimpleEventListener(
   rowsPerPagesPicker,
   'change',

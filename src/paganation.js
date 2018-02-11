@@ -23,7 +23,14 @@ const spawnPageButtons = (paginationNode, pagesAmount) => {
   pageButtons += `<input type="button" class="next" value="Next" title="next page">`;
   paginationNode.innerHTML = pageButtons;
 };
-
+/**
+ * Process table rows to show data only for specified page
+ * @param { Element[] } trNodes - array of tr nodes
+ * @param { int } rowsPerPage - rows per page value
+ * @param { int } page - page to go
+ * @param { Element[] } pageButtons - array of page buttons
+ * @param { bool } isLast - flag which determines last page
+ */
 const getPage = (trNodes, rowsPerPage, page, pageButtons, isLast) => {
   for (const [idx, tr] of trNodes.entries()) {
     const headIdx = rowsPerPage * page - rowsPerPage;
@@ -34,17 +41,23 @@ const getPage = (trNodes, rowsPerPage, page, pageButtons, isLast) => {
     } else {
       tr.classList.add('hidden');
     }
-    for (const button of pageButtons) {
-      button.classList.remove('current');
-    }
-    if (!isLast && pageButtons[page - 1]) {
-      pageButtons[page - 1].classList.add('current');
-    } else if (isLast && pageButtons[pageButtons.length - 1]) {
-      pageButtons[pageButtons.length - 1].classList.add('current');
-    }
+  }
+  // clear any .current class from all buttons
+  for (const button of pageButtons) {
+    button.classList.remove('current');
+  }
+  if (!isLast) {
+    pageButtons[page - 1].classList.add('current');
+  } else {
+    pageButtons[pageButtons.length - 1].classList.add('current');
   }
 };
-
+/**
+ * Adds eventlistener to specified node with "click" event
+ * and "GetPage" as function attached to listener.
+ * @param { Element } node - element to listen
+ * @param { Element|int } params - params to provide with fn as args
+ */
 const addGetPageClickListener = (node, ...params) => {
   addSimpleEventListener(node, 'click', getPage, ...params);
 };
@@ -73,13 +86,6 @@ const paginate = (table, paginationNode, rowsPerPagePicker) => {
   const pagesButtons = document.querySelectorAll('.pagination .page-button');
   const PagesButtonsLength = pagesButtons.length;
   for (const [idx, button] of pagesButtons.entries()) {
-    addGetPageClickListener(
-      button,
-      trNodes,
-      rowsPerPage,
-      idx + 1,
-      pagesButtons,
-    );
     // properly set page number to last page button
     if (idx + 1 === PagesButtonsLength) {
       addGetPageClickListener(
@@ -89,6 +95,14 @@ const paginate = (table, paginationNode, rowsPerPagePicker) => {
         pagesAmount,
         pagesButtons,
         true,
+      );
+    } else {
+      addGetPageClickListener(
+        button,
+        trNodes,
+        rowsPerPage,
+        idx + 1,
+        pagesButtons,
       );
     }
     getPage(trNodes, rowsPerPage, 1, pagesButtons);

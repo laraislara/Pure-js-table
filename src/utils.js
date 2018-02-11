@@ -32,9 +32,32 @@ const makeData = (len = 555) => {
     };
   });
 };
-
+/**
+ * Adds eventlistener to specified node
+ * @param { Element } node - element to listen
+ * @param { string } event - event to trigger listener
+ * @param { function } fn - function attached to listener
+ * @param { Element|int } params - params to provide with fn as args
+ */
 const addSimpleEventListener = (node, event, fn, ...params) => {
   node.addEventListener(event, () => fn(...params));
 };
 
-export { makeData, addSimpleEventListener };
+const toRusLocaleDate = text => {
+  if (text.split('.').length !== 3) {
+    throw 1;
+  }
+  const [d, m, y] = text.split('.');
+  return new Date(y, m, d);
+};
+
+const isRusLocaleDate = text => {
+  try {
+    toRusLocaleDate(text);
+    return true;
+  } catch (err) {
+    return false;
+  }
+};
+
+export { makeData, addSimpleEventListener, toRusLocaleDate, isRusLocaleDate };
